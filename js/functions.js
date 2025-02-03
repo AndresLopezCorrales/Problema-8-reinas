@@ -153,31 +153,35 @@ function cambiarColor(r, c) {
 function cambiarColorAtaque() {
     var colorAtaque = document.getElementById("color-ataque");
 
-    colorAtaque.addEventListener("input", () => {
-        colorLineaAtaque = colorAtaque.value;
+    colorAtaque.addEventListener("click", colorAtaqueFun(colorAtaque));
+    colorAtaque.addEventListener("input", colorAtaqueFun(colorAtaque));
+}
 
-        var tablero = document.getElementById("tablero");
+function colorAtaqueFun(colorAtaque) {
+    colorLineaAtaque = colorAtaque.value;
 
-        for (let i = 0; i < 8; i++) {
-            for (let j = 0; j < 8; j++) {
-                let celda = tablero.rows[i].cells[j];
+    var tablero = document.getElementById("tablero");
 
-                if (!celda.classList.contains("celda-definitiva")) {
-                    celda.style.backgroundColor = "";
-                }
+    for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < 8; j++) {
+            let celda = tablero.rows[i].cells[j];
+
+            if (!celda.classList.contains("celda-definitiva")) {
+                celda.style.backgroundColor = "";
             }
         }
+    }
 
-        for (let i = 0; i < 8; i++) {
-            for (let j = 0; j < 8; j++) {
-                let celda = tablero.rows[i].cells[j];
+    for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < 8; j++) {
+            let celda = tablero.rows[i].cells[j];
 
-                if (window.getComputedStyle(celda).backgroundImage !== "none") {
-                    pintarBloquear(i, j, true);
-                }
+            if (window.getComputedStyle(celda).backgroundImage !== "none") {
+                pintarBloquear(i, j, true);
             }
         }
-    });
+    }
+
 }
 
 //Limpiar en caso de que no este una celda como "celda-definitiva"
@@ -387,25 +391,27 @@ function cambiarPersonaje() {
 function colorImpar() {
     var colorImpar = document.getElementById("color-impar");
 
-    colorImpar.addEventListener("input", () => {
-
-        var color = colorImpar.value;
-
-        impar(color);
-    });
+    colorImpar.addEventListener("click", actualizarColImpar(colorImpar));
+    colorImpar.addEventListener("input", actualizarColImpar(colorImpar));
 
 }
 
 function colorPar() {
     var colorPar = document.getElementById("color-par");
 
-    colorPar.addEventListener("input", () => {
+    colorPar.addEventListener("click", actualizarColPar(colorPar));
+    colorPar.addEventListener("input", actualizarColPar(colorPar));
 
-        var color = colorPar.value;
+}
 
-        par(color);
-    });
+function actualizarColPar(colorPar) {
+    var color = colorPar.value;
+    par(color);
+}
 
+function actualizarColImpar(colorImpar) {
+    var color = colorImpar.value;
+    impar(color);
 }
 
 //Cambiar color en el css de las celdas del tablero impar
