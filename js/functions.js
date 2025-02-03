@@ -222,6 +222,15 @@ function limpiarImagen() {
     }
 }
 
+function limpiarPointer() {
+    var celdas = document.getElementsByTagName("td");
+
+    for (let i = 0; i < celdas.length; i++) {
+        celdas[i].style.pointerEvents = "auto";
+
+    }
+}
+
 //Restart button
 function limpiarTodo() {
     contador = 0;
@@ -229,7 +238,7 @@ function limpiarTodo() {
     puestos = document.getElementById("puestos");
     contadorTexto = document.getElementById("contador");
 
-
+    limpiarPointer();
     limpiarSolucionCero();
     limpiar();
     limpiarImagen();
@@ -257,6 +266,7 @@ function soluciones() {
         case "--":
             contadorTexto.textContent = "Contador: "
             puestos.textContent = 0;
+            limpiarPointer();
             limpiarImagen();
             limpiarSolucionCero();
             contador = 0;
