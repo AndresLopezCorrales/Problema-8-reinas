@@ -30,6 +30,7 @@ function mostrarReina(celda) {
     //SI tiene la class "celda-definitva" no se podrá clickear esa celda
     if (celda.classList.contains("celda-definitiva")) return;
 
+
     if (window.getComputedStyle(celda).backgroundImage == "none") {
         if (contador < 8) {
             celda.style = `
@@ -107,12 +108,17 @@ function pintarBloquear(r, c, marcarDefinitivo) {
 
 //Definir la "class" de cada celda 
 function pintarCelda(celda, color, marcarDefinitivo) {
+    let backgroundImage = window.getComputedStyle(celda).backgroundImage;
     if (marcarDefinitivo) {
         celda.style.backgroundColor = color;
         celda.classList.add("celda-definitiva");
+        if (backgroundImage === "none") {
+            celda.style.pointerEvents = "none";
+        }
     } else {
         celda.style.backgroundColor = "";
         celda.classList.remove("celda-definitiva");
+        celda.style.pointerEvents = "auto";
     }
 }
 
