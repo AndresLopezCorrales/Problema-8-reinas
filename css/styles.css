@@ -1,0 +1,225 @@
+/*Variables para cambiar el color del tablero*/
+:root {
+    --impar: #ffce9e;
+    --par: #d18b47;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+table,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 30rem;
+    /*table solo se aplica a la tabla*/
+    height: 3rem;
+
+}
+
+/*Cambiar color de celdas impar*/
+tr:nth-child(even) td:nth-child(even),
+tr:nth-child(odd) td:nth-child(odd) {
+    background-color: var(--impar);
+}
+
+/*Cambiar color de celdas par*/
+tr:nth-child(odd) td:nth-child(even),
+tr:nth-child(even) td:nth-child(odd) {
+    background-color: var(--par);
+}
+
+#titulo {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+
+#foto-reina {
+    width: 2.7rem;
+}
+
+#foto-foxy,
+#foto-jiggly {
+    width: 5rem;
+}
+
+
+#div-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+
+}
+
+#div-imagenes,
+#div-tabla,
+#div-colores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#div-tabla {
+    width: 65%;
+}
+
+#div-colores {
+    width: 35%;
+}
+
+#div-colorTablero,
+#div-lineaAtaque {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#div-soluciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2.5rem;
+}
+
+#titulo-soluciones {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+#div-tableroAtaque {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+
+.texto-color {
+    margin-right: 0.5rem;
+}
+
+#texto-color2 {
+    margin-left: 0.5rem;
+}
+
+#texto-colores {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+select {
+    font-size: 1rem;
+    padding: 0.4rem;
+    border: 2px solid #333;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+select:hover {
+    border-color: #f1596f;
+}
+
+select:focus {
+    outline: none;
+    border-color: #f1596f;
+}
+
+option {
+    background: #fff;
+    color: #333;
+    padding: 5px;
+}
+
+input[type=color],
+button,
+td {
+    cursor: pointer;
+}
+
+button {
+    height: 2rem;
+}
+
+button:hover {
+    background-color: red;
+    color: azure;
+    border-color: aliceblue;
+}
+
+#div-contador {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+
+#contador,
+#puestos {
+    font-size: 1.5rem;
+
+}
+
+#puestos {
+    margin-right: 1.5rem;
+
+}
+
+#flex-contador {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+
+@media screen and (max-width: 800px) {
+
+    #fotos-img {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 1rem;
+    }
+
+
+    #div-colores {
+        margin-top: 1.5rem;
+    }
+
+    table,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 25rem;
+        height: 2.5rem;
+
+    }
+
+    #div-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        justify-content: center;
+
+    }
+
+
+
+}
